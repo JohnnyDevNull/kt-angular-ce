@@ -1,0 +1,44 @@
+<pre>
+  {{ data() | json }}
+</pre>
+<hr>
+<div class="form-wrapper">
+  <form [formGroup]="form">
+    <div class="form-row f-row">
+      <mat-checkbox formControlName="a">Field "a"</mat-checkbox>
+      <mat-checkbox formControlName="j">Field "j"</mat-checkbox>
+    </div>
+    <div class="form-row mb-0">
+      <mat-form-field appearance="outline">
+        <mat-label>Field "b"</mat-label>
+        <input type="number" matInput placeholder="Number" formControlName="b">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Field "c"</mat-label>
+        <input type="text" matInput placeholder="String" formControlName="c">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Field "e"</mat-label>
+        <input type="text" matInput placeholder="String" formControlName="e">
+      </mat-form-field>
+    </div>
+    <div class="form-row mb-0">
+      <mat-form-field appearance="outline">
+        <mat-label>Field "i"</mat-label>
+        <input type="text" matInput placeholder="String" formControlName="i">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Field "k"</mat-label>
+        <input type="number" matInput placeholder="Number" formControlName="k">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Field "l"</mat-label>
+        <input type="text" matInput placeholder="String" formControlName="l">
+      </mat-form-field>
+    </div>
+  </form>
+</div>
