@@ -1,3 +1,33 @@
+# Description
+
+Use an Angular App, version 17+, if possible no additional frameworks or libraries to display an arbitrarily deeply nested object. Think of two parts of the app: one offers the object (e.g. as a result of a form, an API Call or a method => you can hard code your object there), the second one is used to display the result.  
+
+Example object:
+
+```
+{
+  a: true,
+  b: 44,
+  c: 'Hello, Klicktipp!',
+  d: {
+    e: 'I am a nested object with strings!',
+    f: {
+      g: {
+        h: {
+          i: 'So am I!',
+          j: false,
+          k: 123,
+          l: 'And I am last!'
+        }
+      }
+    }
+  }
+}
+```
+Use appropriate types of form elements to display the values: e.g. check boxes for boolean
+
+Additional: try to style the UI in an appealing manner - SCSS/SASS/LESS (including frameworks) is allowed.
+
 # KtAngularCe
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
