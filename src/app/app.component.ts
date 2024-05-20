@@ -14,6 +14,7 @@ import { ApiData } from './types/api-data.interface';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
+  public readonly title = 'Angular Coding Exercise';
   private readonly apiService: ApiService = inject(ApiService);
 
   protected getData(): Observable<ApiData> {
