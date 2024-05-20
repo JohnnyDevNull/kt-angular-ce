@@ -7,7 +7,8 @@
     "build": "nx build",
     "test": "nx test",
     "e2e": "nx e2e e2e",
-    "e2e:open": "nx open-cypress e2e"
+    "e2e:open": "nx open-cypress e2e",
+    "cleanup": "shx rm -rf ./.angular && shx rm -rf ./.nx && nx reset"
   },
   "private": true,
   "dependencies": {
@@ -60,6 +61,7 @@
     "jest-preset-angular": "~14.0.3",
     "nx": "19.0.4",
     "prettier": "^2.6.2",
+    "shx": "^0.3.4",
     "ts-jest": "^29.1.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.4.2"
