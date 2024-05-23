@@ -1,24 +1,27 @@
 @if (form) {
   <div class="form-wrapper" data-testid="api-data-form">
     <form [formGroup]="form">
-      @for (formKey of formKeys; track formKey) {
-        @if (getInputType(formKey) === 'text' || getInputType(formKey) === 'number') {
+      @for (formRow of formRows; track formRow.key) {
+        @if (formRow.type === 'text' || formRow.type === 'number') {
           <div class="form-row mb-0">
             <mat-form-field appearance="outline" class="w-full">
-              <mat-label>Field "{{ formKey }}"</mat-label>
+              <mat-label>Field "{{ formRow.key }}"</mat-label>
               <input
                 matInput
-                type="{{ getInputType(formKey) }}"
-                placeholder="{{ getInputType(formKey) }}"
-                formControlName="{{ formKey }}"
-                [attr.data-testid]="'field-' + formKey">
+                type="{{ formRow.type }}"
+                placeholder="{{ formRow.type }}"
+                formControlName="{{ formRow.key }}"
+                [attr.data-testid]="'field-' + formRow.key">
             </mat-form-field>
           </div>
         }
-        @else if (getInputType(formKey) === 'checkbox') {
+        @else if (formRow.type === 'checkbox') {
           <div class="form-row">
-            <mat-checkbox formControlName="{{ formKey }}" [attr.data-testid]="'field-' + formKey">
-              Field "{{ formKey }}"
+            <mat-checkbox
+              formControlName="{{ formRow.key }}"
+              [attr.data-testid]="'field-' + formRow.key"
+            >
+              Field "{{ formRow.key }}"
             </mat-checkbox>
           </div>
         }

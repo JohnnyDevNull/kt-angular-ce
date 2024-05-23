@@ -18,26 +18,26 @@ import { flattenObject } from '../../util/flatten-object.function';
 export class ApiFormComponent implements OnInit {
   public data = input<ApiData | null>(null);
 
-  protected formKeys: string[] = [];
-  protected formObject: any | null = null;
   protected form: FormGroup | null = null;
+  protected formRows: { key: string, type: string; }[] = [];
 
   ngOnInit(): void {
     const data = this.data();
     const group: any = {};
 
-    this.formObject = flattenObject(data);
-    this.formKeys = Object.keys(this.formObject);
+    const formData = flattenObject(data);
+    const formKeys = Object.keys(formData);
 
-    for(const key of this.formKeys) {
-      group[key] = new FormControl(this.formObject[key], Validators.required);
+    for(const key of formKeys) {
+      this.formRows.push({ key, type: this.getInputType(key, formData) });
+      group[key] = new FormControl(formData[key], Validators.required);
     }
 
     this.form = new FormGroup(group);
   }
 
-  getInputType(formKey: string) {
-    switch (typeof this.formObject[formKey]) {
+  private getInputType(formKey: string, formData: any) {
+    switch (typeof formData[formKey]) {
       case 'string':
         return 'text';
       case 'number':
