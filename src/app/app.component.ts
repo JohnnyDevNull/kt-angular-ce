@@ -1,8 +1,9 @@
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ApiFormComponent } from './api-form/api-form.component';
+import { ApiFormComponent } from './components/api-form/api-form.component';
+import { ApiJsonComponent } from './components/api-json/api-json.component';
 import { ApiService } from './services/api.service';
 import { ApiData } from './types/api-data.interface';
 
@@ -10,7 +11,7 @@ import { ApiData } from './types/api-data.interface';
   selector: 'app-root',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterModule, ApiFormComponent, AsyncPipe],
+  imports: [RouterModule, ApiFormComponent, AsyncPipe, ApiJsonComponent, NgIf],
   templateUrl: './app.component.html',
 })
 export class AppComponent {

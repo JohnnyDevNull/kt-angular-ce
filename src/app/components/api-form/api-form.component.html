@@ -1,0 +1,31 @@
+@if (form) {
+  <div class="form-wrapper" data-testid="api-data-form">
+    <form [formGroup]="form">
+      @for (formKey of formKeys; track formKey) {
+        @if (getInputType(formKey) === 'text' || getInputType(formKey) === 'number') {
+          <div class="form-row mb-0">
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label>Field "{{ formKey }}"</mat-label>
+              <input
+                matInput
+                type="{{ getInputType(formKey) }}"
+                placeholder="{{ getInputType(formKey) }}"
+                formControlName="{{ formKey }}"
+                [attr.data-testid]="'field-' + formKey">
+            </mat-form-field>
+          </div>
+        }
+        @else if (getInputType(formKey) === 'checkbox') {
+          <div class="form-row">
+            <mat-checkbox formControlName="{{ formKey }}" [attr.data-testid]="'field-' + formKey">
+              Field "{{ formKey }}"
+            </mat-checkbox>
+          </div>
+        }
+        @else {
+          <p>Unsupported Input Type!</p>
+        }
+      }
+    </form>
+  </div>
+}

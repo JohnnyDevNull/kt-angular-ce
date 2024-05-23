@@ -3,17 +3,10 @@
 
   .form-row {
     margin-bottom: 1rem;
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
 
     &.mb-0 {
       margin-bottom: 0;
     }
-  }
-
-  .f-row{
-    flex-direction: row !important;
   }
 }
 
